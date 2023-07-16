@@ -10,6 +10,6 @@ jobs:
         run: |
           echo "hello world"
       - name: run python script
-          run: |
-            pip install wandb
-            python ci.py
+        run: |
+          pip install wandb
+          python ci.py
