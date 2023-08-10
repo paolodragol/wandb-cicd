@@ -1,6 +1,7 @@
 name: GitHub Actions Demo
 
 on: [push]
+
 jobs:
   my-first-job:
     runs-on: ubuntu-latest
@@ -11,5 +12,5 @@ jobs:
           echo "hello world"
       - name: run python script
         run: |
-          pip install wandb
+          pip install -r requirements.txt
           python ci.py
