@@ -1,0 +1,5 @@
+name: course
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
