@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Variables
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
@@ -16,3 +16,12 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: see payload # this step is for debugging purposes only, so you can see the payload
+        run: echo "PAYLOAD:\n${PAYLOAD}\n"
+        env:
+          PAYLOAD: ${{ toJSON(github.event) }}
+      - name: print something from the payload
+        run: echo "${PUSHER} pushed this from their email -> ${EMAIL}"
+        env:
+          PUSHER: ${{ github.event.pusher.name }}
+          EMAIL: ${{ github.event.pusher.email }}
